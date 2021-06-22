@@ -3,7 +3,10 @@ const News = require('../models/News');
 const getAllNews = async (req, res) => {
     try {
         const newsList = await News.find();
-        res.json(newsList)
+        res.render('home', {
+            title: newsList
+        });
+        //res.json(newsList)
     } catch (e) {
         console.log(e.message)
     }
