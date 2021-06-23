@@ -5,7 +5,8 @@ const postNews = async (req, res) => {
         const newNews = await new News({
             title: req.body.title,
             text: req.body.text,
-            category: req.params.id
+            category: req.params.id,
+            img: req.body.img
         })
         newNews.save();
         res.json('News post added: ' + newNews)

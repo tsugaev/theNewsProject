@@ -10,7 +10,8 @@ const newsSchema = new mongoose.Schema({
     category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'
-    }
+    },
+    img: String
 })
 
 module.exports = mongoose.model('News', newsSchema)

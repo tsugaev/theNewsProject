@@ -3,10 +3,9 @@ const News = require('../models/News');
 const getAllNews = async (req, res) => {
     try {
         const newsList = await News.find();
-        res.render('home', {
-            title: newsList
-        });
-        //res.json(newsList)
+
+        res.render('home', newsList);
+        // res.json(newsList)
     } catch (e) {
         console.log(e.message)
     }
@@ -14,10 +13,9 @@ const getAllNews = async (req, res) => {
 
 const getOneNews = async (req, res) => {
     try {
-        const newsPost = await News.findById({
-            _id: req.params.id
-        });
-        res.json(newsPost)
+        const newsPost = await News.findById(req.params.id);
+        res.render('newsPost', newsPost);
+        // res.json(newsPost)
     } catch (e) {
         console.log(e.message)
     }
