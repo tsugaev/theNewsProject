@@ -3,7 +3,7 @@ const Category = require('../models/Category');
 const getAllCategories = async (req, res) => {
     try {
         const categoriesList = await Category.find();
-        res.json(categoriesList)
+        res.render(categoriesList)
     } catch (e) {
         console.log(e.message)
     }

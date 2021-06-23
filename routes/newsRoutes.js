@@ -5,6 +5,7 @@ const methods = require('../controllers/index');
 router.post('/category/:id/news', methods.postNews);
 
 router.get('/news', methods.getNews.getAllNews);
+router.get('/home', methods.getNews.getAllNews);
 router.get('/news/:id', methods.getNews.getOneNews);
 router.get('/category/:id/news', methods.getNews.getCategoryNews);
 

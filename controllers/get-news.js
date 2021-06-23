@@ -2,9 +2,10 @@ const News = require('../models/News');
 
 const getAllNews = async (req, res) => {
     try {
-        const newsList = await News.find();
+        const newsList = await News.find().lean();
 
-        res.render('home', newsList);
+        res.render('home', {
+            news: newsList});
         // res.json(newsList)
     } catch (e) {
         console.log(e.message)
@@ -25,8 +26,11 @@ const getCategoryNews = async (req, res) => {
     try {
         const newsList = await News.find({
             category: req.params.id
-        });
-        res.json(newsList)
+        }).lean();
+        res.render('categoryNews', {
+            news: newsList
+        })
+        // res.json(newsList)
     } catch (e) {
         console.log(e.message)
     }
