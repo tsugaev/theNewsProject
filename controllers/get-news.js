@@ -1,4 +1,5 @@
 const News = require('../models/News');
+const Comment = require('../models/Comment');
 
 const getAllNews = async (req, res) => {
     try {
@@ -14,8 +15,15 @@ const getAllNews = async (req, res) => {
 
 const getOneNews = async (req, res) => {
     try {
-        const newsPost = await News.findById(req.params.id);
-        res.render('newsPost', newsPost);
+        const commentList = await Comment.find({
+            news: req.params.id
+        }).lean();
+
+        const newsPost = await News.findById(req.params.id).lean();
+
+        const lego = { post: newsPost, comments: commentList}
+
+        res.render('newsPost', lego);
         // res.json(newsPost)
     } catch (e) {
         console.log(e.message)

@@ -1,11 +1,23 @@
 <div class="block">
-    <img src="{{img}}">
+    <img src="{{post.img}}">
 </div>
-<div>
-    {{title}}
+<div class="block">
+    <h3>
+        {{post.title}}
+    </h3>
+    <h4>
+        {{post.text}}
+    </h4>
+
 </div>
-<div>
-    {{text}}
+<div class="comments">
+    {{#each comments}}
+        <div class="comBlock">
+            <h4>{{name}}</h4>
+            <h5>{{text}}</h5>
+            <h6>{{date}}</h6>
+        </div>
+    {{/each}}
 </div>
 </div><div>
 
