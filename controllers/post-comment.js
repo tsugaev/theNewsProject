@@ -8,7 +8,7 @@ const postComment = async (req, res) => {
             name: req.body.name
         });
         newComment.save();
-        res.json('Comment added')
+        res.redirect(`/news/${req.params.id}`);
     } catch (e) {
         console.log(e.message)
     }

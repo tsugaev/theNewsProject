@@ -10,6 +10,13 @@
     </h4>
 
 </div>
+<div class="block">
+<form action="/news/{{post._id}}/comment" method="post">
+    <p><input type="text" name="name" placeholder="ваше имя"></p>
+    <p><input type="text" name="text" placeholder="ваш комментарий"></p>
+    <p><input type="submit" value="Отправить"></p>
+</form>
+    </div>
 <div class="comments">
     {{#each comments}}
         <div class="comBlock">
@@ -19,5 +26,4 @@
         </div>
     {{/each}}
 </div>
-</div><div>
-
+</div>
